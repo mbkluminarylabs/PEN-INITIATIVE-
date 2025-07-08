@@ -8,31 +8,31 @@ export default function Impact() {
   const stats = [
     {
       icon: Users,
-      number: '12,500+',
+      number: '100+',
       label: 'Lives Transformed',
       color: 'from-blue-500 to-blue-600',
     },
     {
       icon: BookOpen,
-      number: '8,200+',
+      number: '200+',
       label: 'Students Educated',
       color: 'from-teal-500 to-teal-600',
     },
     {
       icon: Heart,
-      number: '4,800+',
+      number: '300+',
       label: 'Families Supported',
       color: 'from-red-500 to-red-600',
     },
     {
       icon: Award,
-      number: '150+',
+      number: '4+',
       label: 'Programs Launched',
       color: 'from-orange-500 to-orange-600',
     },
     {
       icon: Globe,
-      number: '25+',
+      number: '5+',
       label: 'Communities Reached',
       color: 'from-purple-500 to-purple-600',
     },

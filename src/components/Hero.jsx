@@ -49,7 +49,7 @@ export default function Hero() {
                   <Users className="h-5 w-5 text-blue-600" />
                 </div>
                 <div>
-                  <p className="text-2xl font-bold text-gray-900">10,000+</p>
+                  <p className="text-2xl font-bold text-gray-900">100+</p>
                   <p className="text-sm text-gray-600">Lives Impacted</p>
                 </div>
               </div>
@@ -58,7 +58,7 @@ export default function Hero() {
                   <BookOpen className="h-5 w-5 text-teal-600" />
                 </div>
                 <div>
-                  <p className="text-2xl font-bold text-gray-900">50+</p>
+                  <p className="text-2xl font-bold text-gray-900">30+</p>
                   <p className="text-sm text-gray-600">Programs</p>
                 </div>
               </div>

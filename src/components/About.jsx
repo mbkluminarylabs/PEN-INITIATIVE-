@@ -54,16 +54,16 @@ export default function About() {
 3. Quality and Excellence: We are dedicated to delivering high-quality educational programs, resources, and support services. We strive for excellence in our operations, impact, and accountability to all stakeholders. 
 
             </p>
-            <div className="flex items-center space-x-4 pt-4">
+            <div className="flex items-center justify-center space-x-4 pt-4">
               <div className="bg-blue-100 px-4 py-2 rounded-full">
-                <span className="text-blue-800 font-semibold">Founded 2020</span>
+                <span className="text-blue-800 font-semibold">Founded 2024</span>
               </div>
               <div className="bg-teal-100 px-4 py-2 rounded-full">
                 <span className="text-teal-800 font-semibold">Non-Profit</span>
               </div>
-              <div className="bg-orange-100 px-4 py-2 rounded-full">
+              {/* <div className="bg-orange-100 px-4 py-2 rounded-full">
                 <span className="text-orange-800 font-semibold">Global Reach</span>
-              </div>
+              </div> */}
             </div>
           </div>
           
