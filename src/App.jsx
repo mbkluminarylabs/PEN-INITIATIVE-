@@ -15,7 +15,7 @@ function App() {
   
       <div className="min-h-screen">
         <Header/>   
-        <main>
+        {/* <main>
           <Hero/>
           <About/>
           <Impact/>
@@ -24,7 +24,7 @@ function App() {
           <Contact/>
 
         </main> 
-        <Footer/>    
+        <Footer/>     */}
       </div>
        
     
