@@ -82,8 +82,8 @@ export default function Header() {
                   {item.label}
                 </a>
               ))}
-              <button className="bg-gradient-to-r from-blue-600 to-teal-600 text-white px-6 py-2 rounded-full hover:from-blue-700 hover:to-teal-700 transition-all duration-200 mt-4">
-                Donate Now
+              <button className="text-xl font-extrabold bg-gradient-to-r from-blue-600 to-teal-600 text-white px-6 py-2 rounded-full hover:from-blue-700 hover:to-teal-700 transition-all duration-200 mt-4">
+                Donate
               </button>
             </nav>
           </div>
