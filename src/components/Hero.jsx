@@ -94,9 +94,11 @@ import pen2 from "../assets/images/pen-image2.jpg";
 import pen5 from "../assets/images/pen-image5.jpg";
 import pen8 from "../assets/images/pen-image8.jpg";
 
+
 const slides = [
+   
   { image: pen1, title: "Welcome to Our Platform", subtitle: "Discover amazing experiences that inspire and delight" },
-  { image: pen2, title: "Innovation at Its Best", subtitle: "Transform your ideas into reality with cutting-edge solutions" },
+  { image: pen2, title: "Back To School Outreach", subtitle: "ECWA Secondary School Igbaja, Kwara State." },
   { image: pen5, title: "Build Something Beautiful", subtitle: "Create memorable experiences that leave lasting impressions" },
   { image: pen8, title: "Your Journey Starts Here", subtitle: "Join thousands who have already transformed their vision" },
 ];
