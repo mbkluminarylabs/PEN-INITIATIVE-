@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Heart } from 'lucide-react';
 import logo from '../assets/images/logo.jpeg'
+import { Link } from 'react-router-dom';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -54,7 +55,7 @@ export default function Header() {
 
           <div className="hidden md:flex items-center space-x-4">
             <button className="bg-gradient-to-r from-[#d53571] to-[#ebad4b] text-white px-6 py-2 rounded-full hover:from-blue-700 hover:to-teal-700 transition-all duration-200 transform hover:scale-105">
-              Donate Now
+              <Link to="/donate">Donate</Link>
             </button>
           </div>
 
@@ -82,7 +83,7 @@ export default function Header() {
                 </a>
               ))}
               <button className="bg-gradient-to-r from-blue-600 to-teal-600 text-white px-6 py-2 rounded-full hover:from-blue-700 hover:to-teal-700 transition-all duration-200 mt-4">
-                Donate Now
+                Donate
               </button>
             </nav>
           </div>

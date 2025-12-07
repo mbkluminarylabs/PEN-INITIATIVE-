@@ -1,35 +1,19 @@
-import React from 'react'
-import './App.css'
-import Header from './components/Header'
-import Hero from './components/Hero';
-import About from './components/About';
-import Impact from './components/Impact';
-import Programs from './components/Programs';
-import Gallery from './components/Gallery';
-import Contact from './components/Contact';
-import Footer from './components/Footer';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./components/Home";
+import Donate from "./components/Donate";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 function App() {
-
-
   return (
-  
-      <div className="min-h-screen">
-        <Header/>   
-        <main>
-          <Hero/>
-          <About/>
-          <Impact/>
-          <Programs/>
-          <Gallery/>
-          <Contact/>
-
-        </main> 
-        <Footer/>    
-      </div>
-       
-    
-  )
+    <BrowserRouter>
+      <Routes>
+        <Route index path="/" element={<Home />} />
+        <Route path="donate" element={<Donate />} />
+      </Routes>
+      <ToastContainer position="top-right" autoClose={3000} />
+    </BrowserRouter>
+  );
 }
 
-
-export default App
+export default App;
