@@ -3,6 +3,8 @@ import { TrendingUp, Users, BookOpen, Heart, Award, Globe } from 'lucide-react';
 import two from '../assets/images/two.jpeg'
 import mammy from '../assets/images/mammy.jpeg'
 import sukura from '../assets/images/sukura.jpeg'
+import { Link } from 'react-router-dom';
+
 
 export default function Impact() {
   const stats = [
@@ -71,7 +73,7 @@ export default function Impact() {
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-gray-900 mb-4">Our Impact</h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Every number represents a life touched, a family supported, and a community transformed. 
+            Every number represents a life touched, a family supported, and a community transformed.
             Together, we're creating lasting change.
           </p>
         </div>
@@ -118,9 +120,12 @@ export default function Impact() {
             <p className="text-lg mb-6 opacity-90">
               Your support can help us reach even more communities and create greater impact.
             </p>
-            <button className="bg-gradient-to-r from-[#d53571] to-[#ebad4b] text-white px-8 py-3 rounded-full font-semibold hover:from-blue-700 hover:to-teal-700 transition-all duration-200 transform hover:scale-105">
-              Donate Now
-            </button>
+            <Link
+              to="/donate"
+              className="bg-gradient-to-r from-[#d53571] to-[#ebad4b] text-white px-8 py-3 rounded-full font-semibold hover:from-blue-700 hover:to-teal-700 transition-all duration-200 transform hover:scale-105"
+            >
+              Donate
+            </Link>
           </div>
         </div>
       </div>

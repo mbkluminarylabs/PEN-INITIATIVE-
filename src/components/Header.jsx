@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import logo from '../assets/images/logo.jpeg';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { scroller } from 'react-scroll';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -15,20 +18,45 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Scroll to section when on home page
+  useEffect(() => {
+    if (location.state && location.state.scrollTo) {
+      const section = location.state.scrollTo;
+      scroller.scrollTo(section, {
+        duration: 500,
+        smooth: true,
+        offset: -80,
+      });
+      window.history.replaceState({}, document.title); // remove state after scrolling
+    }
+  }, [location]);
+
   const navItems = [
-    { href: '#home', label: 'HOME' },
-    { href: '#about', label: 'WHO WE ARE' },
-    { href: '#gallery', label: 'GALLERY' },
-    { href: '#programs', label: 'PROGRAMS' },
-    { href: '#impact', label: 'IMPACTS' },
-    { href: '#contact', label: 'CONTACT' },
+    { to: 'home', label: 'HOME' },
+    { to: 'about', label: 'WHO WE ARE' },
+    { to: 'gallery', label: 'GALLERY' },
+    { to: 'programs', label: 'PROGRAMS' },
+    { to: 'impact', label: 'IMPACTS' },
+    { to: 'contact', label: 'CONTACT' },
   ];
+
+  const handleNavClick = (section) => {
+    if (location.pathname !== '/') {
+      navigate('/', { state: { scrollTo: section } });
+    } else {
+      scroller.scrollTo(section, {
+        duration: 500,
+        smooth: true,
+        offset: -80,
+      });
+    }
+    setIsMenuOpen(false);
+  };
 
   return (
     <header
-      className={`fixed w-full z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-black backdrop-blur-md shadow-lg' : 'bg-[#d53571]'
-      }`}
+      className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-black backdrop-blur-md shadow-lg' : 'bg-[#d53571]'
+        }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
@@ -45,13 +73,13 @@ export default function Header() {
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-8">
             {navItems.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                className="text-white hover:text-blue-950 transition-colors duration-200 font-bold"
+              <button
+                key={item.to}
+                className="text-white hover:text-blue-950 transition-colors duration-200 font-bold cursor-pointer"
+                onClick={() => handleNavClick(item.to)}
               >
                 {item.label}
-              </a>
+              </button>
             ))}
           </nav>
 
@@ -78,14 +106,13 @@ export default function Header() {
           <div className="md:hidden bg-white/95 backdrop-blur-md rounded-lg shadow-lg mt-2 p-4">
             <nav className="flex flex-col space-y-4">
               {navItems.map((item) => (
-                <a
-                  key={item.href}
-                  href={item.href}
-                  className="text-gray-700 hover:text-blue-600 transition-colors duration-200 font-medium"
-                  onClick={() => setIsMenuOpen(false)}
+                <button
+                  key={item.to}
+                  className="text-gray-700 hover:text-blue-600 transition-colors duration-200 font-medium cursor-pointer"
+                  onClick={() => handleNavClick(item.to)}
                 >
                   {item.label}
-                </a>
+                </button>
               ))}
 
               <Link
