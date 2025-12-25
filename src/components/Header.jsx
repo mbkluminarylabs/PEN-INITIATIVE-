@@ -34,8 +34,8 @@ export default function Header() {
   const navItems = [
     { to: 'home', label: 'HOME' },
     { to: 'about', label: 'WHO WE ARE' },
-    { to: 'impact', label: 'IMPACTS' },
-    { to: 'programs', label: 'PROGRAMS' },
+    // { to: 'impact', label: 'IMPACTS' },
+    // { to: 'programs', label: 'PROGRAMS' },
     { to: 'gallery', label: 'GALLERY' },
     { to: 'contact', label: 'CONTACT' },
   ];
@@ -58,11 +58,11 @@ export default function Header() {
       className={`fixed w-full z-20 transition-all duration-300 ${isScrolled ? 'bg-black backdrop-blur-md shadow-lg' : 'bg-transparent'
         }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center py-4">
-          <div className="flex items-center space-x-2">
-            <div className="bg-gradient-to-r from-[#d53571] to-[#ebad4b] p-2 rounded-full">
-              <img src={logo} alt="logo" width={30} className="rounded-full" />
+      <div    className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div  className="flex justify-between items-center py-4">
+          <div  className="flex items-center space-x-2">
+            <div  className="bg-gradient-to-r from-[#d53571] to-[#ebad4b] p-2 rounded-full">
+              <img  src={logo} alt="logo" width={30} className="rounded-full" />
             </div>
             <div className="flex flex-col">
               <h1 className="text-xl font-bold text-white">PEN INITIATIVE</h1>

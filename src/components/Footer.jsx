@@ -21,12 +21,12 @@ export default function Footer() {
       { label: 'Partner', href: '#' },
       { label: 'Events', href: '#' },
     ],
-    'Resources': [
-      { label: 'News', href: '#' },
-      { label: 'Blog', href: '#' },
-      { label: 'Resources', href: '#' },
-      { label: 'Contact', href: '#' },
-    ],
+    // 'Resources': [
+    //   { label: 'News', href: '#' },
+    //   { label: 'Blog', href: '#' },
+    //   { label: 'Resources', href: '#' },
+    //   { label: 'Contact', href: '#' },
+    // ],
   };
 
   const socialLinks = [
@@ -52,10 +52,7 @@ export default function Footer() {
                 <p className="text-sm text-gray-400">Learning & Relief</p>
               </div>
             </div>
-            <p className="text-gray-400 mb-6 leading-relaxed">
-              Empowering communities through quality education and humanitarian relief. 
-              Together, we build a brighter future for those who need it most.
-            </p>
+            
             <div className="space-y-2 text-sm">
               <div className="flex items-center space-x-2">
                 <Mail className="h-4 w-4 text-gray-400" />
