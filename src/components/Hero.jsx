@@ -87,7 +87,7 @@
 //     </section>
 //   );
 // }
-
+// --------------------------------------------------------------------
 import { useEffect, useState, useRef } from "react";
 
 import pen1 from "../assets/images/pen-image.jpg";
@@ -95,13 +95,28 @@ import pen2 from "../assets/images/pen-image2.jpg";
 import pen5 from "../assets/images/pen-image5.jpg";
 import pen8 from "../assets/images/pen-image8.jpg";
 
-
 const slides = [
-   
-  { image: pen1, title: "Welcome to Our Platform", subtitle: "Discover amazing experiences that inspire and delight" },
-  { image: pen2, title: "Back To School Outreach", subtitle: "ECWA Secondary School Igbaja, Kwara State." },
-  { image: pen5, title: "Build Something Beautiful", subtitle: "Create memorable experiences that leave lasting impressions" },
-  { image: pen8, title: "Your Journey Starts Here", subtitle: "Join thousands who have already transformed their vision" },
+  {
+    image: pen1,
+    title: "Step Into a World of Possibility",
+    subtitle: "Ignite your curiosity, embrace new experiences, and make a difference.",
+  },
+  {
+    image: pen2,
+    title: "Empowering Students to Dream and Succeed",
+    subtitle:
+      "PEN Initiatives gifted career guide textbooks to students of ECWA Secondary School, Igbaja, empowering them to dream, choose, and succeed.",
+  },
+  {
+    image: pen5,
+    title: "Inspiring the Leaders of Tomorrow",
+    subtitle: "Empower a child, and you empower a generation.",
+  },
+  {
+    image: pen8,
+    title: "Hope Lives in Every Child",
+    subtitle: "Because every child deserves a school bag as strong as their dreams",
+  },
 ];
 
 export default function Heros() {
@@ -115,14 +130,18 @@ export default function Heros() {
   useEffect(() => {
     const timer = setInterval(() => nextSlide(), 5000);
     return () => clearInterval(timer);
-  }, [currentSlide]);
+  }, []);
 
   const nextSlide = () => {
     setIsTransitioning(true);
     setTimeout(() => {
-      setCurrentSlide((currentSlide + 1) % slides.length);
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
       setIsTransitioning(false);
     }, 300);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
   };
 
   // Swipe 
@@ -132,53 +151,55 @@ export default function Heros() {
     if (touchStartX.current === null || touchEndX.current === null) return;
     const distance = touchStartX.current - touchEndX.current;
     if (distance > 50) nextSlide();
-    if (distance < -50) setCurrentSlide((currentSlide - 1 + slides.length) % slides.length);
+    if (distance < -50) prevSlide();
   };
 
   return (
-    <div id="home"
-      className=" relative h-screen w-full overflow-hidden"
+    <div
+      id="home"
+      className="relative h-screen w-full overflow-hidden"
       onTouchStart={onTouchStart}
       onTouchMove={onTouchMove}
       onTouchEnd={onTouchEnd}
     >
-      {slides.map((slide, index) => (
-        <div
-          key={index}
-          className={`absolute inset-0 transition-all duration-[1500ms] ease-out ${
-            index === currentSlide ? "opacity-100 scale-100" : "opacity-0 scale-110"
-          }`}
-          style={{
-            backgroundImage: `url(${slide.image})`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
-        >
-          <div className="absolute inset-0 bg-black/20" />
-          <div className="relative h-full flex items-center justify-center px-4">
-            <div className="text-center max-w-4xl">
-              <h1
-                className={`text-5xl md:text-7xl font-bold text-white mb-6 transition-all duration-700 ${
-                  index === currentSlide && !isTransitioning
-                    ? "opacity-100 translate-y-0 scale-100"
-                    : "opacity-0 translate-y-8 scale-90"
-                }`}
-                style={{ transitionDelay: "200ms" }}
-              >
-                {slide.title}
-              </h1>
-              <p
-                className={`text-xl md:text-2xl text-white/90 transition-all duration-700 ${
-                  index === currentSlide && !isTransitioning ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-                }`}
-                style={{ transitionDelay: "400ms" }}
-              >
-                {slide.subtitle}
-              </p>
+      {slides.map((slide, index) => {
+        const isActive = index === currentSlide && !isTransitioning;
+        return (
+          <div
+            key={index}
+            className={`absolute inset-0 transition-all duration-[1500ms] ease-out ${
+              isActive ? "opacity-100 scale-100" : "opacity-0 scale-110"
+            }`}
+            style={{
+              backgroundImage: `url(${slide.image})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
+          >
+            <div className="absolute inset-0 bg-black/20 pointer-events-none" />
+            <div className="relative h-full flex items-center justify-center px-4">
+              <div className="text-center max-w-4xl">
+                <h1
+                  className={`text-5xl md:text-7xl font-bold text-white mb-6 transition-all duration-700 ${
+                    isActive ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-8 scale-90"
+                  }`}
+                  style={{ transitionDelay: "200ms" }}
+                >
+                  {slide.title}
+                </h1>
+                <p
+                  className={`text-xl md:text-2xl text-white/90 transition-all duration-700 max-w-2xl mx-auto leading-relaxed bg-black/40 px-6 py-4 rounded-lg backdrop-blur-sm ${
+                    isActive ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+                  }`}
+                  style={{ transitionDelay: "400ms" }}
+                >
+                  {slide.subtitle}
+                </p>
+              </div>
             </div>
           </div>
-        </div>
-      ))}
+        );
+      })}
     </div>
   );
 }

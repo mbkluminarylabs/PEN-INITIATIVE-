@@ -34,9 +34,9 @@ export default function Header() {
   const navItems = [
     { to: 'home', label: 'HOME' },
     { to: 'about', label: 'WHO WE ARE' },
-    { to: 'gallery', label: 'GALLERY' },
-    { to: 'programs', label: 'PROGRAMS' },
     { to: 'impact', label: 'IMPACTS' },
+    { to: 'programs', label: 'PROGRAMS' },
+    { to: 'gallery', label: 'GALLERY' },
     { to: 'contact', label: 'CONTACT' },
   ];
 
@@ -55,7 +55,7 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-black backdrop-blur-md shadow-lg' : 'bg-[#d53571]'
+      className={`fixed w-full z-20 transition-all duration-300 ${isScrolled ? 'bg-black backdrop-blur-md shadow-lg' : 'bg-transparent'
         }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
