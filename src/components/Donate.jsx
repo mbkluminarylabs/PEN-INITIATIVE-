@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import PaystackPop from "@paystack/inline-js";
 import Header from './Header';
-import Footer from './Footer';
 import { toast } from "react-toastify";
+
 
 export default function Donate() {
     const [formData, setFormData] = useState({
@@ -69,7 +69,7 @@ export default function Donate() {
                         console.log("Verified Data:", data);
                         setTimeout(() => {
                             window.location.href = "/";
-                        }, 3000);
+                        }, 2000);
                     } else {
                         toast.error("Verification failed");
                         console.log(data);
@@ -86,13 +86,20 @@ export default function Donate() {
         });
     };
 
+
     return (
+
         <div className="flex flex-col min-h-screen">
             <Header />
 
-            <main className="flex-grow flex flex-col justify-center">
-                <section className="flex-grow flex items-center justify-center py-20 bg-gray-50">
+            <main className="flex-grow flex flex-col">
+
+                <section className="py-20 
+bg-gradient-to-br from-slate-100 via-sky-100 to-indigo-100">
+
+
                     <div className="max-w-5xl mx-auto px-4 w-full">
+
 
                         <div className="text-center mb-12">
                             <h2 className="text-4xl font-bold text-gray-900 mb-4">
@@ -104,110 +111,167 @@ export default function Donate() {
                             </p>
                         </div>
 
-                        <div className="bg-white shadow-lg p-8 rounded-2xl">
+                        <div className="bg-slate-300 rounded-3xl shadow-2xl p-8 border border-slate-300">
                             <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">
                                 Donate Now
                             </h3>
 
-                            <form onSubmit={handleSubmit} className="space-y-6">
+                            <form
+                                onSubmit={handleSubmit}
+                                className="space-y-6 bg-slate-300/80 p-8 rounded-3xl shadow-2xl"
+                            >
+                                {/* Name */}
                                 <div>
-                                    <label className="block font-semibold">Name *</label>
+                                    <label className="block mb-1 text-slate-900 font-semibold">
+                                        Name *
+                                    </label>
                                     <input
                                         type="text"
                                         name="name"
                                         value={formData.name}
                                         onChange={handleChange}
                                         required
-                                        className="w-full border rounded-lg px-4 py-3"
+                                        className="w-full bg-slate-200 text-slate-900
+      border border-slate-400 rounded-xl px-4 py-3
+      focus:outline-none focus:ring-2 focus:ring-emerald-500
+      transition"
                                     />
                                 </div>
 
+                                {/* Address */}
                                 <div>
-                                    <label className="block font-semibold">Address</label>
+                                    <label className="block mb-1 text-slate-900 font-semibold">
+                                        Address
+                                    </label>
                                     <input
                                         type="text"
                                         name="address"
                                         value={formData.address}
                                         onChange={handleChange}
-                                        className="w-full border rounded-lg px-4 py-3"
+                                        className="w-full bg-slate-200 text-slate-900
+      border border-slate-400 rounded-xl px-4 py-3
+      focus:outline-none focus:ring-2 focus:ring-emerald-500
+      transition"
                                     />
                                 </div>
 
+                                {/* Email */}
                                 <div>
-                                    <label className="block font-semibold">Email *</label>
+                                    <label className="block mb-1 text-slate-900 font-semibold">
+                                        Email *
+                                    </label>
                                     <input
                                         type="email"
                                         name="email"
                                         value={formData.email}
                                         onChange={handleChange}
                                         required
-                                        className="w-full border rounded-lg px-4 py-3"
+                                        className="w-full bg-slate-200 text-slate-900
+      border border-slate-400 rounded-xl px-4 py-3
+      focus:outline-none focus:ring-2 focus:ring-emerald-500
+      transition"
                                     />
                                 </div>
 
+                                {/* Phone */}
                                 <div>
-                                    <label className="block font-semibold">Phone No *</label>
+                                    <label className="block mb-1 text-slate-900 font-semibold">
+                                        Phone No *
+                                    </label>
                                     <input
                                         type="tel"
                                         name="phone"
                                         value={formData.phone}
                                         onChange={handleChange}
                                         required
-                                        className="w-full border rounded-lg px-4 py-3"
+                                        className="w-full bg-slate-200 text-slate-900
+      border border-slate-400 rounded-xl px-4 py-3
+      focus:outline-none focus:ring-2 focus:ring-emerald-500
+      transition"
                                     />
                                 </div>
 
+                                {/* Purpose */}
                                 <div>
-                                    <label className="block font-semibold">Purpose</label>
+                                    <label className="block mb-1 text-slate-900 font-semibold">
+                                        Purpose
+                                    </label>
                                     <input
                                         type="text"
                                         name="purpose"
                                         value={formData.purpose}
                                         onChange={handleChange}
-                                        className="w-full border rounded-lg px-4 py-3"
+                                        className="w-full bg-slate-200 text-slate-900
+      border border-slate-400 rounded-xl px-4 py-3
+      focus:outline-none focus:ring-2 focus:ring-emerald-500
+      transition"
                                     />
                                 </div>
 
+                                {/* Project */}
                                 <div>
-                                    <label className="block font-semibold">Select Project</label>
+                                    <label className="block mb-1 text-slate-900 font-semibold">
+                                        Select Project
+                                    </label>
                                     <select
                                         name="project"
                                         value={formData.project}
                                         onChange={handleChange}
-                                        className="w-full border rounded-lg px-4 py-3"
+                                        className="w-full bg-slate-200 text-slate-900
+      border border-slate-400 rounded-xl px-4 py-3
+      focus:outline-none focus:ring-2 focus:ring-emerald-500
+      transition"
                                     >
                                         <option value="">-- Select Project --</option>
                                         {projects.map((proj, index) => (
-                                            <option key={index} value={proj}>{proj}</option>
+                                            <option key={index} value={proj}>
+                                                {proj}
+                                            </option>
                                         ))}
                                     </select>
                                 </div>
 
+                                {/* Amount */}
                                 <div>
-                                    <label className="block font-semibold">Amount (NGN) *</label>
+                                    <label className="block mb-1 text-slate-900 font-semibold">
+                                        Amount (NGN) *
+                                    </label>
                                     <input
                                         type="number"
                                         name="amount"
                                         value={formData.amount}
                                         onChange={handleChange}
                                         required
-                                        className="w-full border rounded-lg px-4 py-3"
+                                        className="w-full bg-slate-200 text-slate-900
+      border border-slate-400 rounded-xl px-4 py-3
+      focus:outline-none focus:ring-2 focus:ring-emerald-500
+      transition"
                                     />
                                 </div>
 
-                                <button
-                                    type="submit"
-                                    className="w-full bg-blue-600 text-white py-3 rounded-lg text-lg font-semibold hover:bg-blue-700"
-                                >
-                                    Donate Now
-                                </button>
+                                {/* Donate Button */}
+                                <div className="flex justify-center pt-8">
+                                    <button
+                                        type="submit"
+                                        className="
+        px-14 py-4 rounded-full text-lg font-bold
+        text-slate-900
+        bg-gradient-to-r from-emerald-400 via-teal-500 to-cyan-500
+        shadow-xl transition-all duration-300 ease-out
+        hover:shadow-2xl hover:scale-105
+        hover:from-emerald-500 hover:via-teal-600 hover:to-cyan-600
+        focus:outline-none focus:ring-4 focus:ring-emerald-400/50
+      "
+                                    >
+                                         Donate Now
+                                    </button>
+                                </div>
                             </form>
+
                         </div>
                     </div>
                 </section>
             </main>
-
-            <Footer />
         </div>
     );
 }

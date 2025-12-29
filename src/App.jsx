@@ -3,10 +3,13 @@ import Home from "./components/Home";
 import Donate from "./components/Donate";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
+  
   return (
     <BrowserRouter>
+    <ScrollToTop />
       <Routes>
         <Route index path="/" element={<Home />} />
         <Route path="donate" element={<Donate />} />
