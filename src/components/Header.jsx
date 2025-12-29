@@ -117,9 +117,9 @@ export default function Header() {
 
               <Link
                 to="/donate"
+                Donate
                 className="text-xl font-extrabold bg-gradient-to-r from-blue-600 to-teal-600 text-white px-6 py-2 rounded-full hover:from-blue-700 hover:to-teal-700 transition-all duration-200 mt-4"
               >
-                Donate
               </Link>
             </nav>
           </div>

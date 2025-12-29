@@ -94,7 +94,7 @@ export default function Donate() {
 
             <main className="flex-grow flex flex-col ">
 
-                <section className="py-20  bg-gray-900">
+                <section className="py-20  bg-gray-600">
 
 
                     <div className="max-w-5xl mx-auto px-4 w-full">

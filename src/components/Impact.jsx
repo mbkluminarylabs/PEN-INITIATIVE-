@@ -120,10 +120,7 @@ export default function Impact() {
             <p className="text-lg mb-6 opacity-90">
               Your support can help us reach even more communities and create greater impact.
             </p>
-            <Link
-              to="/donate"
-              className="bg-gradient-to-r from-[#d53571] to-[#ebad4b] text-white px-8 py-3 rounded-full font-semibold hover:from-blue-700 hover:to-teal-700 transition-all duration-200 transform hover:scale-105"
-            >
+            <Link to="/donate" className="bg-gradient-to-r from-[#d53571] to-[#ebad4b] text-white px-8 py-3 rounded-full font-semibold hover:from-blue-700 hover:to-teal-700 transition-all duration-200 transform hover:scale-105">
               Donate
             </Link>
           </div>

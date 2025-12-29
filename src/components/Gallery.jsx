@@ -23,6 +23,7 @@ import image21 from "../assets/images/image21.jpeg"
 import image22 from "../assets/images/image22.jpeg"
 import ImageSlider from './ImageSlider';
 import { Camera, Users, BookOpen, Heart } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export default function Gallery() {
   // Sample images - replace these URLs with your actual images
@@ -115,9 +116,10 @@ export default function Gallery() {
             <p className="text-lg mb-6 opacity-90">
               Every picture tells a story of hope, transformation, and community impact.
             </p>
-            <button className="bg-white text-blue-600 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-all duration-200 transform hover:scale-105">
-              Join Our Mission
-            </button>
+             <Link to="/contact"
+                className="bg-white text-blue-600 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-all duration-200 transform hover:scale-105">
+                  Join Our Mission
+              </Link>
           </div>
         </div>
       </div>
