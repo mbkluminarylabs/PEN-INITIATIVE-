@@ -89,23 +89,22 @@ export default function Donate() {
 
     return (
 
-        <div className="flex flex-col min-h-screen">
+        <div className="flex flex-col min-h-screen ">
             <Header />
 
-            <main className="flex-grow flex flex-col">
+            <main className="flex-grow flex flex-col ">
 
-                <section className="py-20 
-bg-gradient-to-br from-slate-100 via-sky-100 to-indigo-100">
+                <section className="py-20  bg-gray-900">
 
 
                     <div className="max-w-5xl mx-auto px-4 w-full">
 
 
                         <div className="text-center mb-12">
-                            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+                            <h2 className="text-4xl font-bold text-white mb-4">
                                 Support Our Mission
                             </h2>
-                            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                            <p className="text-lg text-white max-w-2xl mx-auto">
                                 Your donation helps us provide education, relief support,
                                 and a brighter future for children in underserved communities.
                             </p>
