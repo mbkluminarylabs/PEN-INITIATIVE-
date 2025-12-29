@@ -94,7 +94,11 @@
 // }
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
-import { Heart, Users, Target, Award, Sparkles } from "lucide-react";
+import { Heart, Users, Target, Award, Sparkles } from "lucide-react"; 
+import pho from "../assets/images/pen-photo.jpeg"
+import pho1 from "../assets/images/dicretor.jpeg"
+import pho3 from "../assets/images/pho3.jpeg"
+import pho4 from "../assets/images/pen-videoeditor.jpeg"
 
 export default function About() {
   const [activeValue, setActiveValue] = useState(0);
@@ -112,10 +116,10 @@ export default function About() {
   };
 
   const team = [
-    { name: "Jimoh Kabir", role: "Executive Director", image: "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=400", bio: "15+ years in education advocacy" },
-    { name: "Dr. Lukman Mammy", role: "Director of Education Programs", image: "https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=400", bio: "PhD in Child Development" },
-    { name: "Temitope Sukurat", role: "Community Outreach Manager", image: "https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=400", bio: "Connecting communities since 2015" },
-    { name: "Pep Wise", role: "Program Coordinator", image: "https://images.pexels.com/photos/1516680/pexels-photo-1516680.jpeg?auto=compress&cs=tinysrgb&w=400", bio: "Specialist in youth programs" }
+    { name: "Jimoh Kabir Opeyemi ", role: "Founder, B.Sc MSc. Physics. PGCe. PGDe", image:pho , bio: "15+ years in education advocacy" },
+    { name: "Alabidun Ridwanullah ", role: "Director of Education Programs", image: pho1, bio: "Health Information manager (LHIT)" },
+    { name: "Kelani Barakat Sunmisola ", role: "Report writer", image: pho3, bio: "Connecting communities since 2015" },
+    { name: "Oyeniran Philip Oluwadamilare", role: "Media Publicity officer ", image: pho4, bio: "Cinematographer & Video Editor" }
   ];
 
   const values = [
