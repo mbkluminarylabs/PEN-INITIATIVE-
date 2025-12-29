@@ -62,7 +62,7 @@ export default function Header() {
         <div  className="flex justify-between items-center py-4">
           <div  className="flex items-center space-x-2">
             <div  className="bg-gradient-to-r from-[#d53571] to-[#ebad4b] p-2 rounded-full">
-              <img  src={logo} alt="logo" width={30} className="rounded-full" />
+              <img   src={logo} alt="logo" width={30} className="rounded-full " />
             </div>
             <div className="flex flex-col">
               <h1 className="text-xl font-bold text-white">PEN INITIATIVE</h1>
