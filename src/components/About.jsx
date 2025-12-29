@@ -118,8 +118,8 @@ export default function About() {
   const team = [
     { name: "Jimoh Kabir Opeyemi ", role: "Founder, B.Sc MSc. Physics. PGCe. PGDe", image:pho , bio: "15+ years in education advocacy" },
     { name: "Alabidun Ridwanullah ", role: "Director of Education Programs", image: pho1, bio: "Health Information manager (LHIT)" },
-    { name: "Kelani Barakat Sunmisola ", role: "Report writer", image: pho3, bio: "Connecting communities since 2015" },
-    { name: "Oyeniran Philip Oluwadamilare", role: "Media Publicity officer ", image: pho4, bio: "Cinematographer & Video Editor" }
+    { name: "Kelani .B. Sunmisola ", role: "Report writer", image: pho3, bio: "Connecting communities since 2015" },
+    { name: "Oyeniran .P. Oluwadamilare", role: "Media Publicity officer ", image: pho4, bio: "Cinematographer & Video Editor" }
   ];
 
   const values = [
