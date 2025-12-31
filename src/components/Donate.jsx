@@ -131,9 +131,8 @@ export default function Donate() {
                                         onChange={handleChange}
                                         required
                                         className="w-full bg-slate-200 text-slate-900
-      border border-slate-400 rounded-xl px-4 py-3
-      focus:outline-none focus:ring-2 focus:ring-emerald-500
-      transition"
+                                        border border-slate-400 rounded-xl px-4 py-3
+                                        focus:outline-none focus:ring-2 focus:ring-emerald-500 transition"
                                     />
                                 </div>
 

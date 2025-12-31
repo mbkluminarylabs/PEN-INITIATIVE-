@@ -1,187 +1,146 @@
 import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Clock, Send } from 'lucide-react';
+import {  toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     subject: '',
-    message: ''
+    message: '',
   });
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log('Form submitted:', formData);
-    setFormData({ name: '', email: '', subject: '', message: '' });
+  const handleInputChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleInputChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const res = await fetch('https://formspree.io/f/xzdbnnbe', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (res.ok) {
+        toast.success('Message sent successfully ✅');
+        setFormData({ name: '', email: '', subject: '', message: '' });
+      } else {
+        toast.error('Failed to send message ❌');
+      }
+    } catch (err) {
+      console.error(err);
+      toast.error('Error sending message ❌');
+    }
   };
 
   const contactInfo = [
-    {
-      icon: Mail,
-      title: 'Email',
-      details: 'penfoundationforlearning@gmail.com',
-      subdetails: 'We reply within 24 hours',
-    },
-    {
-      icon: Phone,
-      title: 'Phone',
-      details: '+4407881155965, +2348160016901',
-      subdetails: 'Mon-Fri 9AM-6PM EST',
-    },
-    {
-      icon: MapPin,
-      title: 'Address',
-      details: 'Behind Teejay feed mill, along ojere Road, ',
-      subdetails: 'Ogidi ilorin kwara state Nigeria',
-    },
-    {
-      icon: Clock,
-      title: 'Office Hours',
-      details: 'Monday - Friday',
-      subdetails: '9:00 AM - 6:00 PM EST',
-    },
+    { icon: Mail, title: 'Email', details: 'hardeyemo3@gmail.com', subdetails: 'We reply within 24 hours' },
+    { icon: Phone, title: 'Phone', details: '+4407881155965, +2348160016901', subdetails: 'Mon-Fri 9AM-6PM EST' },
+    { icon: MapPin, title: 'Address', details: 'Behind Teejay feed mill, along ojere Road,', subdetails: 'Ogidi Ilorin, Kwara State, Nigeria' },
+    { icon: Clock, title: 'Office Hours', details: 'Monday - Friday', subdetails: '9:00 AM - 6:00 PM EST' },
   ];
 
   return (
-    <section id="contact" className="py-1 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">Get in Touch</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Ready to join our mission or have questions about our programs? 
-            We'd love to hear from you.
-          </p>
-        </div>
+    <>
 
-        <div className="grid lg:grid-cols-2 gap-12">
-          {/* Contact Information */}
-          <div>
-            <h3 className="text-2xl font-bold text-gray-900 mb-8">Contact Information</h3>
-            <div className="space-y-6">
-              {contactInfo.map((info, index) => (
-                <div key={index} className="flex items-start space-x-4">
-                  <div className="bg-gradient-to-r from-blue-600 to-teal-600 w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0">
-                    <info.icon className="h-6 w-6 text-white" />
-                  </div>
-                  <div>
-                    <h4 className="text-lg font-semibold text-gray-900">{info.title}</h4>
-                    <p className="text-gray-700">{info.details}</p>
-                    <p className="text-gray-500 text-sm">{info.subdetails}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
+      <section id="contact" className="py-12 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">Get in Touch</h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Ready to join our mission or have questions about our programs? We'd love to hear from you.
+            </p>
+          </div>
 
-            <div className="mt-8 p-6 bg-white rounded-2xl shadow-lg">
-              <h4 className="text-lg font-semibold text-gray-900 mb-4">Ways to Support</h4>
-              <div className="space-y-3">
-                {[
-                  'Volunteer your time and skills',
-                  'Make a financial donation',
-                  'Partner with us on programs',
-                  'Spread awareness'
-                ].map((support, index) => (
-                  <div key={index} className="flex items-center space-x-3">
-                    <div className={`w-2 h-2 rounded-full ${['bg-blue-600', 'bg-teal-600', 'bg-orange-600', 'bg-red-600'][index]}`}></div>
-                    <span className="text-gray-700">{support}</span>
+          <div className="grid lg:grid-cols-2 gap-12">
+            {/* Contact Info */}
+            <div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-8">Contact Information</h3>
+              <div className="space-y-6">
+                {contactInfo.map((info, idx) => (
+                  <div key={idx} className="flex items-start space-x-4">
+                    <div className="bg-gradient-to-r from-blue-600 to-teal-600 w-12 h-12 rounded-full flex items-center justify-center">
+                      <info.icon className="h-6 w-6 text-white" />
+                    </div>
+                    <div>
+                      <h4 className="text-lg font-semibold text-gray-900">{info.title}</h4>
+                      <p className="text-gray-700">{info.details}</p>
+                      <p className="text-gray-500 text-sm">{info.subdetails}</p>
+                    </div>
                   </div>
                 ))}
               </div>
             </div>
-          </div>
 
-          {/* Contact Form */}
-          <div className="bg-white rounded-2xl shadow-lg p-8">
-            <h3 className="text-2xl font-bold text-gray-900 mb-6">Send us a Message</h3>
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid md:grid-cols-2 gap-6">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-                    Full Name
-                  </label>
+            {/* Contact Form */}
+            <div className="bg-white rounded-2xl shadow-lg p-8">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">Send us a Message</h3>
+
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="grid md:grid-cols-2 gap-6">
                   <input
                     type="text"
-                    id="name"
                     name="name"
+                    placeholder="Full Name"
                     value={formData.name}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
-                    placeholder="Your full name"
+                    className="px-4 py-3 border rounded-lg w-full"
                   />
-                </div>
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                    Email Address
-                  </label>
                   <input
                     type="email"
-                    id="email"
                     name="email"
+                    placeholder="Email Address"
                     value={formData.email}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
-                    placeholder="your@email.com"
+                    className="px-4 py-3 border rounded-lg w-full"
                   />
                 </div>
-              </div>
 
-              <div>
-                <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">
-                  Subject
-                </label>
                 <select
-                  id="subject"
                   name="subject"
                   value={formData.subject}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+                  className="w-full px-4 py-3 border rounded-lg"
                 >
                   <option value="">Select a subject</option>
-                  <option value="volunteer">Volunteer Opportunities</option>
-                  <option value="donation">Make a Donation</option>
-                  <option value="partnership">Partnership Inquiry</option>
-                  <option value="program">Program Information</option>
-                  <option value="other">Other</option>
+                  <option value="Volunteer">Volunteer</option>
+                  <option value="Donation">Donation</option>
+                  <option value="Partnership">Partnership</option>
+                  <option value="Other">Other</option>
                 </select>
-              </div>
 
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-                  Message
-                </label>
                 <textarea
-                  id="message"
                   name="message"
+                  rows={6}
                   value={formData.message}
                   onChange={handleInputChange}
                   required
-                  rows={6}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
-                  placeholder="Tell us how we can help you or how you'd like to get involved..."
+                  placeholder="Your message..."
+                  className="w-full px-4 py-3 border rounded-lg"
                 />
-              </div>
 
-              <button
-                type="submit"
-                className="w-full bg-gradient-to-r from-blue-600 to-teal-600 text-white py-3 px-6 rounded-lg hover:from-blue-700 hover:to-teal-700 transition-all duration-200 flex items-center justify-center group"
-              >
-                Send Message
-                <Send className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-              </button>
-            </form>
+                <button
+                  type="submit"
+                  className="w-full bg-gradient-to-r from-blue-600 to-teal-600 text-white py-3 rounded-lg flex items-center justify-center gap-2 hover:scale-105 transition"
+                >
+                  Send Message <Send size={18} />
+                </button>
+              </form>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+
+      </section>
+    </>
   );
 }

@@ -66,7 +66,7 @@
 //               </div> */}
 //             </div>
 //           </div>
-          
+
 //           <div className="relative">
 //             <img
 //               src={people}
@@ -94,20 +94,22 @@
 // }
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
-import { Heart, Users, Target, Award, Sparkles } from "lucide-react"; 
+import { Heart, Users, Target, Award, Sparkles} from "lucide-react";
 import pho from "../assets/images/pen-photo.jpeg"
 import pho1 from "../assets/images/dicretor.jpeg"
 import pho3 from "../assets/images/pho3.jpeg"
 import pho4 from "../assets/images/pen-videoeditor.jpeg"
+import { Link } from "react-router-dom";
+
 
 export default function About() {
   const [activeValue, setActiveValue] = useState(0);
-  
+
   // Explicitly reference motion to satisfy linter
   const MotionDiv = motion.div;
 
-  const fadeUp = { 
-    hidden: { opacity: 0, y: 60 }, 
+  const fadeUp = {
+    hidden: { opacity: 0, y: 60 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
   };
 
@@ -116,27 +118,27 @@ export default function About() {
   };
 
   const team = [
-    { name: "Jimoh Kabir Opeyemi ", role: "Founder, B.Sc MSc. Physics. PGCe. PGDe", image:pho , bio: "15+ years in education advocacy" },
+    { name: "Jimoh Kabir Opeyemi ", role: "Founder, B.Sc MSc. Physics. PGCe. PGDe", image: pho, bio: "15+ years in education advocacy" },
     { name: "Alabidun Ridwanullah ", role: "Director of Education Programs", image: pho1, bio: "Health Information manager (LHIT)" },
     { name: "Kelani .B. Sunmisola ", role: "Report writer", image: pho3, bio: "Connecting communities since 2015" },
     { name: "Oyeniran Oluwadamilare", role: "Media Publicity officer ", image: pho4, bio: "Cinematographer & Video Editor" }
   ];
 
   const values = [
-    { 
-      title: "Child-Centricity", 
+    {
+      title: "Child-Centricity",
       text: "We prioritize the best interests, safety, and development of every child.",
       icon: Heart,
       color: "from-pink-500 to-rose-500"
     },
-    { 
-      title: "Equity & Inclusivity", 
+    {
+      title: "Equity & Inclusivity",
       text: "We dismantle barriers and ensure equal opportunities for all children.",
       icon: Users,
       color: "from-blue-500 to-cyan-500"
     },
-    { 
-      title: "Quality & Excellence", 
+    {
+      title: "Quality & Excellence",
       text: "We deliver high-quality programs with accountability and impact.",
       icon: Award,
       color: "from-purple-500 to-indigo-500"
@@ -179,7 +181,7 @@ export default function About() {
           viewport={{ once: true, margin: "-100px" }}
           className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12"
         >
-          <motion.div 
+          <motion.div
             variants={fadeUp}
             className="bg-gradient-to-br from-blue-600/20 to-purple-600/20 backdrop-blur-xl p-8 rounded-3xl border border-white/10 hover:border-white/20 transition-all duration-300 hover:scale-[1.02]"
           >
@@ -191,8 +193,8 @@ export default function About() {
               A world where every child, regardless of circumstance, has equitable access to quality education and the holistic support needed to thrive and reach their full potential.
             </p>
           </motion.div>
-          
-          <motion.div 
+
+          <motion.div
             variants={fadeUp}
             className="bg-gradient-to-br from-purple-600/20 to-pink-600/20 backdrop-blur-xl p-8 rounded-3xl border border-white/10 hover:border-white/20 transition-all duration-300 hover:scale-[1.02]"
           >
@@ -219,34 +221,34 @@ export default function About() {
             What We Do
           </h2>
           <div className="grid md:grid-cols-2 gap-6">
-          {[
-            "Provide academic support and learning enrichment",
-            "Supply essential educational resources",
-            "Create safe, nurturing learning environments",
-            "Deliver relief and psychosocial support to children facing hardship",
-            "Mobilize community gatherings that promote inclusion and care"
-          ].map((item, i) => {
-            const itemVariants = {
-              hidden: { opacity: 0, x: -30 },
-              visible: { opacity: 1, x: 0 }
-            };
-            
-            return (
-              <motion.div
-                key={i}
-                variants={itemVariants}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="flex items-start gap-4 bg-white/5 p-6 rounded-2xl border border-white/10 hover:bg-white/10 transition-all duration-300"
-              >
-                <div className="w-2 h-2 rounded-full bg-gradient-to-r from-blue-400 to-purple-400 mt-2 flex-shrink-0" />
-                <p className="text-white/80">{item}</p>
-              </motion.div>
-            );
-          })}
-                  </div>
+            {[
+              "Provide academic support and learning enrichment",
+              "Supply essential educational resources",
+              "Create safe, nurturing learning environments",
+              "Deliver relief and psychosocial support to children facing hardship",
+              "Mobilize community gatherings that promote inclusion and care"
+            ].map((item, i) => {
+              const itemVariants = {
+                hidden: { opacity: 0, x: -30 },
+                visible: { opacity: 1, x: 0 }
+              };
+
+              return (
+                <motion.div
+                  key={i}
+                  variants={itemVariants}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1 }}
+                  className="flex items-start gap-4 bg-white/5 p-6 rounded-2xl border border-white/10 hover:bg-white/10 transition-all duration-300"
+                >
+                  <div className="w-2 h-2 rounded-full bg-gradient-to-r from-blue-400 to-purple-400 mt-2 flex-shrink-0" />
+                  <p className="text-white/80">{item}</p>
+                </motion.div>
+              );
+            })}
+          </div>
         </MotionDiv>
       </section>
 
@@ -321,10 +323,10 @@ export default function About() {
                 className="group relative bg-white/5 rounded-3xl overflow-hidden border border-white/10 hover:border-white/20 transition-all duration-300 hover:scale-105"
               >
                 <div className="relative overflow-hidden">
-                  <img 
-                    src={member.image} 
+                  <img
+                    src={member.image}
                     alt={`${member.name}, ${member.role}`}
-                    className="h-72 w-full object-cover group-hover:scale-110 transition-transform duration-500" 
+                    className="h-72 w-full object-cover group-hover:scale-110 transition-transform duration-500"
                     loading="lazy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
@@ -343,7 +345,7 @@ export default function About() {
       {/* JOIN US - Enhanced CTA */}
       <section className="py-24 bg-gradient-to-br from-green-600 via-emerald-600 to-teal-700 relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(255,255,255,0.1),transparent_50%)]" />
-        
+
         <div className="relative z-10 max-w-3xl mx-auto px-6 text-center">
           <MotionDiv
             initial={{ y: 30, opacity: 0 }}
@@ -356,21 +358,22 @@ export default function About() {
               Whether you're a volunteer, donor, educator, or community partner, your support helps create lasting impact.
             </p>
             <p className="text-2xl font-bold mb-10 tracking-wide">Educate. Support. Empower.</p>
-            
             <div className="flex flex-wrap justify-center gap-4">
-              <button 
+              <Link
+                to="/donate"
                 className="px-10 py-4 rounded-full bg-white text-green-700 font-bold text-lg shadow-2xl hover:shadow-white/30 hover:scale-105 transition-all duration-300"
-                aria-label="Make a donation"
               >
                 Donate Now
-              </button>
-              <button 
+              </Link>
+
+              <Link
+                to="/contact"
                 className="px-10 py-4 rounded-full border-2 border-white backdrop-blur-sm hover:bg-white/10 font-bold text-lg hover:scale-105 transition-all duration-300"
-                aria-label="Learn about volunteering opportunities"
               >
                 Get Involved
-              </button>
+              </Link>
             </div>
+
           </MotionDiv>
         </div>
       </section>
